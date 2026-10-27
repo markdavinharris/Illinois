@@ -1,0 +1,21 @@
+{
+ "state": "IL",
+ "county_expr": "REGEXP_REPLACE(UPPER(a.Jurisname), ' COUNTY$', '')",
+ "alias": {
+  "DE KALB": "DEKALB",
+  "DU PAGE": "DUPAGE",
+  "LA SALLE": "LASALLE",
+  "ST. CLAIR": "ST CLAIR",
+  "DEWITT": "DE WITT",
+  "JODAVIESS": "JO DAVIESS",
+  "CITY OF CHICAGO": "COOK",
+  "CITY OF BLOOMINGTON": "MCLEAN",
+  "CITY OF DANVILLE": "VERMILION",
+  "CITY OF EAST ST LOUIS": "ST CLAIR",
+  "CITY OF GALESBURG": "KNOX",
+  "CITY OF ROCKFORD": "WINNEBAGO"
+ },
+ "_note": "Read by ev_refresh.py. county_expr is the SQL for the county of an ABEV row (a = ABEV row, v = voter-file row); alias maps feed/voter-file spellings to the county names used by the page map. projection: true makes each run recompute the gated projection panel (build/make_proj.py). asof_week_ratio: a day counts as complete only if its votes are at least this share of the same weekday one week earlier (the IL feed carries a thin slice of the newest day).",
+ "projection": true,
+ "asof_week_ratio": 0.25
+}
